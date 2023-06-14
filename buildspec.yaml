@@ -1,4 +1,7 @@
 version: 0.2
+env:
+  variables:
+    PACKAGE_VERSION: dev-$(date +%Y%m%d%H%M%S)
 phases:
   install:
     runtime-versions:
@@ -20,4 +23,4 @@ phases:
   post_build:
     commands:
       # Publish JAR artifact to AWS CodeArtifact
-      aws codeartifact push --repository Sample-JavaSpringboot-App --domain abdulgafffoor --format maven --namespace development --package sample-javaspringboot --version v1 --artifact target/*.jar
+      aws codeartifact push --repository Sample-JavaSpringboot-App --domain abdulgafffoor --format maven --namespace development --package sample-javaspringboot --version $PACKAGE_VERSION --artifact target/*.jar

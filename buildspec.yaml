@@ -6,7 +6,6 @@ phases:
   install:
     runtime-versions:
       java: corretto8
-      maven: 3
   pre_build:
     commands:
       # Install AWS CLI

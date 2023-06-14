@@ -20,7 +20,8 @@ phases:
   build:
     commands:
       # Set up AWS CodeArtifact credentials
-      - aws codeartifact login --tool maven --domain abdulgafffoor --domain-owner 262874500832 --repository Sample-JavaSpringboot-App
+      #- aws codeartifact login --tool maven --domain abdulgafffoor --domain-owner 262874500832 --repository Sample-JavaSpringboot-App
+      - aws codeartifact login --tool maven --domain abdulgafffoor --domain-owner 262874500832 --repository Sample-JavaSpringboot-App --region ap-south-1
       - mvn −version
   post_build:
     commands:

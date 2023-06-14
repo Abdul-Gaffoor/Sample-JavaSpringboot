@@ -1,0 +1,23 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+  pre_build:
+    commands:
+      # Install AWS CLI
+      curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+      unzip awscli-bundle.zip
+      sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+  build:
+    commands:
+      # Set up AWS CodeArtifact credentials
+      aws codeartifact login --tool maven --domain abdulgafffoor --domain-owner 262874500832 --repository Sample-JavaSpringboot-App
+
+      # Build and package the project using Maven
+      mvn clean package
+
+  post_build:
+    commands:
+      # Publish JAR artifact to AWS CodeArtifact
+      aws codeartifact push --repository Sample-JavaSpringboot-App --domain abdulgafffoor --format maven --namespace development --package sample-javaspringboot --version v1 --artifact target/*.jar

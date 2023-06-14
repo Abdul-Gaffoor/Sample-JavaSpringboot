@@ -6,7 +6,6 @@ phases:
   install:
     runtime-versions:
       java: corretto8
-      python: 3.7
   pre_build:
     commands:
       # Install AWS CLI

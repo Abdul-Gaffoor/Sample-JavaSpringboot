@@ -9,9 +9,8 @@ phases:
   pre_build:
     commands:
       # Install Python 3.7
-      - sudo apt-get update
-      - sudo apt-get install -y python3.7
-      - sudo ln -sf /usr/bin/python3.7 /usr/bin/python
+      - sudo yum install -y python3.7
+      - sudo alternatives --set python /usr/bin/python3.7
       # Install AWS CLI
       - curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
       - unzip awscli-bundle.zip

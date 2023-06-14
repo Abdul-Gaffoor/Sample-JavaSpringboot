@@ -17,10 +17,7 @@ phases:
     commands:
       # Set up AWS CodeArtifact credentials
       aws codeartifact login --tool maven --domain abdulgafffoor --domain-owner 262874500832 --repository Sample-JavaSpringboot-App
-
-      # Build and package the project using Maven
       mvn −version
-
   post_build:
     commands:
       # Publish JAR artifact to AWS CodeArtifact

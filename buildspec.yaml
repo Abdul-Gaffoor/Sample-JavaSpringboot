@@ -11,6 +11,7 @@ phases:
       # Install Python 3.7
       - sudo yum install -y python3.7
       - sudo ln -sf /usr/bin/python3.7 /usr/bin/python
+      - python3 --version
       # Install AWS CLI
       - curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
       - unzip awscli-bundle.zip

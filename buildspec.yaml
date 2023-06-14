@@ -18,7 +18,7 @@ phases:
       aws codeartifact login --tool maven --domain abdulgafffoor --domain-owner 262874500832 --repository Sample-JavaSpringboot-App
 
       # Build and package the project using Maven
-      mvn clean package
+      mvn −version
 
   post_build:
     commands:
